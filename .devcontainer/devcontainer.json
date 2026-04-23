@@ -5,6 +5,7 @@
     "ghcr.io/devcontainers/features/node:1": {
       "version": "24"
     },
+    "./src/gsd": {},
     // "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
     "ghcr.io/devcontainers-extra/features/claude-code:1": {
       "version": "2.1.104"
@@ -14,7 +15,6 @@
     "LANG": "en_US.UTF-8",
     "LC_ALL": "en_US.UTF-8"
   },
-  "postCreateCommand": "npm install -g gsd-pi@latest",
   "mounts": [
     {
         "source": "${localEnv:HOME}/WorkSpace/agent_configs/gsd/dot_gsd",

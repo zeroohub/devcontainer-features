@@ -1,0 +1,9 @@
+{
+  "id": "gsd",
+  "version": "0.1.0",
+  "name": "GSD CLI",
+  "description": "Installs the GSD CLI with npm.",
+  "documentationURL": "https://github.com/zeroohub/devcontainer-features",
+  "licenseURL": "https://github.com/zeroohub/devcontainer-features/blob/main/LICENSE",
+  "options": {}
+}
