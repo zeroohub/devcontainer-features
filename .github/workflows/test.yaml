@@ -1,0 +1,29 @@
+name: "CI - Test Features"
+on:
+  workflow_run:
+    workflows: ["Validate devcontainer-feature.json files"]
+    types:
+      - completed
+
+jobs:
+  test-scenarios:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        features:
+          - gsd
+    steps:
+      - name: "Checkout correct SHA"
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: "Install latest devcontainer CLI"
+        run: npm install -g @devcontainers/cli
+
+      - name: "Ensure test-builds.sh is executable"
+        run: chmod +x ./test/test-builds.sh
+
+      - name: "Generating tests for '${{ matrix.features }}' scenarios"
+        run: ./test/test-builds.sh -s ./test/${{ matrix.features }}/scenarios.json --quiet
