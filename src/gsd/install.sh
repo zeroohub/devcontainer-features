@@ -21,3 +21,4 @@ if [ "$install_exit_code" -ne 0 ]; then
   echo "ERROR: gsd install failed while running: ${INSTALL_COMMAND[*]}" >&2
   exit "$install_exit_code"
 fi
+
