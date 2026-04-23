@@ -1,0 +1,40 @@
+{
+  "name": "Demo Container",
+  "image": "mcr.microsoft.com/devcontainers/base:trixie",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    // "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
+    "ghcr.io/devcontainers-extra/features/claude-code:1": {
+      "version": "2.1.104"
+    }
+  },
+  "containerEnv": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8"
+  },
+  "postCreateCommand": "npm install -g gsd-pi@latest",
+  "mounts": [
+    {
+        "source": "${localEnv:HOME}/WorkSpace/agent_configs/gsd/dot_gsd",
+        "target": "/home/vscode/.gsd",
+        "type": "bind"
+    },
+    {
+        "source": "${localEnv:HOME}/WorkSpace/agent_configs/gsd/auth_gpt_leann.json",
+        "target": "/home/vscode/.gsd/agent/auth.json",
+        "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/WorkSpace/agent_configs/claude_code_glm/dot_claude",
+      "target": "/home/vscode/.claude",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/WorkSpace/agent_configs/claude_code_glm/dot_claude.json",
+      "target": "/home/vscode/.claude.json",
+      "type": "bind"
+    }
+  ]
+}
