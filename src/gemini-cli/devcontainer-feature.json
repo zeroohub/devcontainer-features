@@ -1,0 +1,12 @@
+{
+  "id": "gemini-cli",
+  "version": "1.0.0",
+  "name": "Gemini CLI",
+  "description": "Installs the Gemini CLI with npm.",
+  "documentationURL": "https://github.com/zeroohub/devcontainer-features",
+  "licenseURL": "https://github.com/zeroohub/devcontainer-features/blob/main/LICENSE",
+  "options": {},
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/node"
+  ]
+}

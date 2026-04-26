@@ -8,6 +8,12 @@ if ! command -v node >/dev/null 2>&1; then
   exit 1
 fi
 
+NODE_MAJOR=$(node -e 'console.log(process.versions.node.split(".")[0])')
+if [ "$NODE_MAJOR" -lt 22 ]; then
+  echo "ERROR: Node >= 22 is required, but found Node $(node --version). Install Node 22+ in the consuming devcontainer before using the gsd feature." >&2
+  exit 1
+fi
+
 if ! command -v npm >/dev/null 2>&1; then
   echo "ERROR: Required prerequisite 'npm' is not available on PATH. Install npm in the consuming devcontainer before using the gsd feature." >&2
   exit 1
